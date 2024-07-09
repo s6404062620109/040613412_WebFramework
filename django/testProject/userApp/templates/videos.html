@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+        <div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>title</th>
+                    <th>published_date</th>
+                    <th>short_detail</th>
+                    <th>demo</th>
+                </tr>
+                {% for i in videos %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.title}}</td>
+                    <td>{{i.published_date}}</td>
+                    <td>{{i.short_detail}}</td>
+                    <td>{{i.demo}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+</body>
+</html>
