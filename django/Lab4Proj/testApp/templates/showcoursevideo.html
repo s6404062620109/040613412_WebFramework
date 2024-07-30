@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Video</title>
+</head>
+<body>
+    <h1>Course ID: {{course_id}}</h1>
+    {% for video in videos %}
+    <ul>
+        <li>
+            <div>{{video.title}}</div>
+            <div>{{video.published_date}}</div>
+            <div>{{video.author_id}}</div>
+        </li>
+    </ul>
+    {% endfor %}
+</body>
+</html>
