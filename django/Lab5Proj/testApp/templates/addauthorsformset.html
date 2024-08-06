@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block title %}Add Multiple Authors{% endblock %}
+    {% block content %}
+    <div class="container">
+        <h1>Add Authors</h1>
+        <form method='POST'>
+            {% csrf_token %}
+            {{ formset.management_form }}
+            {% for form in formset %}
+                {{ form }}
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
+
+        <div>
+            <ul>
+            {% for author in queryfirstname %}
+                <li>Firstname: {{ author.firstname }}, Lastname: {{ author.lastname }}, Phone number: {{ author.phone }}, Joined Date: {{ author.joined_date }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

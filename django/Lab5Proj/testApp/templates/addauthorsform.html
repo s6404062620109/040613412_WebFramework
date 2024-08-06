@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddAuthors</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}Add Author{% endblock %}
+
+    {% block content %}
+    <h1>AddAuthor</h1>
+    <form method='POST'>
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Submit">
+    </form>
+
+    <div>
+        <ul>
+        {% for author in queryfirstname %}
+            <li>Firstname:{{author.firstname}}, Lastname:{{author.lastname}}, Phonenumber:{{author.phone}}, Joined Date:{{author.joined_date}}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}
+</body>
+</html>
