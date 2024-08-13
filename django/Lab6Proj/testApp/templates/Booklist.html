@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+  <div class="container">
+
+    <div class="row">
+      {% for book in books_with_authors %}
+        <div class="col-md-3 mb-4">
+            <div class="card" style="width: 18rem">
+                <img
+                src="{% static './wallpaper.jpg' %}"
+                alt="Book Image"
+                class="card-img-top"
+                
+                />
+                <div class="card-body">
+                <h5 class="card-title">Title: {{ book.title }}</h5>
+                <p class="card-text">Author: {{book.author.firstname}}</p>
+                <p class="card-text">Category: {{ book.category }}</p>
+                {% if book.saleprice == 0 %}
+                <button type="button" class="btn btn-danger">Free</button>
+                {% else %}
+                <button type="button" class="btn btn-success">{{book.saleprice}}</button>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>    
+
+{% endblock %}
