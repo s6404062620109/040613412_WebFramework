@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base</title>
+</head>
+<body>
+    <form action={% url 'adduser' %} method="POST">
+
+        {% csrf_token %}
+        
+        <div>
+            {{ form.Citizenid.label_tag }}<br>
+            {{ form.Citizenid }}<br>
+            {% if form.Citizenid.errors %}
+                <div style="color: red;">
+                    {{ form.Citizenid.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ form.Firstname.label_tag }}<br>
+            {{ form.Firstname }}<br>
+            {% if form.Firstname.errors %}
+                <div style="color: red;">
+                    {{ form.Firstname.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ form.Lastname.label_tag }}<br>
+            {{ form.Lastname }}<br>
+            {% if form.Lastname.errors %}
+                <div style="color: red;">
+                    {{ form.Lastname.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ form.ExpireDate.label_tag }}<br>
+            {{ form.ExpireDate }}<br>
+            {% if form.ExpireDate.errors %}
+                <div style="color: red;">
+                    {{ form.ExpireDate.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ form.Blood_type.label_tag }}<br>
+            {{ form.Blood_type }}<br>
+            {% if form.Blood_type.errors %}
+                <div style="color: red;">
+                    {{ form.Blood_type.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <input type="submit" value="Submit">
+        
+    </form>
+</body>
+</html>
