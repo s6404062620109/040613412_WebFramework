@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Author</title>
+</head>
+<body>
+    <h2>Welcome, {{ member_firstname }}!</h2>
+    <h3>Session Key: {{ session_key }}</h3>
+
+    <h3>List Author</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Joined Date</th>
+                <th>Author Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+            <tr>
+                <td>{{ author.id }}</td>
+                <td>{{ author.firstname }}</td>
+                <td>{{ author.lastname }}</td>
+                <td>{{ author.phone|default_if_none:"N/A" }}</td>
+                <td>{{ author.joined_date }}</td>
+                <td>{{ author.get_type_author_display }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No authors found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'showvideo' %}">Video List</a>
+    <form method="get" action="{% url 'logout' %}">
+        <button type="submit">Log Out</button>
+    </form>
+</body>
+</html>

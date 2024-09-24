@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Video</title>
+</head>
+<body>
+    <h2>Welcome, {{ member_firstname }}!</h2>
+
+    <h3>Session Key: {{ session_key }}</h3>
+
+    <h3>Available Videos</h3>
+    <ul>
+        {% for video in videos %}
+            <li>
+                <strong>{{ video.title }}</strong> - {{ video.published_date }}
+                <p>{{ video.short_detail }}</p>
+                {% if video.demo %}
+                    <p>(Demo Video)</p>
+                {% endif %}
+            </li>
+        {% empty %}
+            <p>No videos available at the moment.</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'showauthor' %}">Author List</a>
+    <form method="get" action="{% url 'logout' %}">
+        <button type="submit">Log Out</button>
+    </form>
+</body>
+</html>
