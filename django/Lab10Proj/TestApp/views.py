@@ -19,22 +19,16 @@ class person_list_context(TemplateView):
 
     template_name = "person_list.html"
 
-    model = Person
-
     extra_context={'object_list': Person.objects.all()}
 
 class person_student(person_list_context):
 
     template_name = "student_list.html"
 
-    model = Student
-
     extra_context={'object_list': Student.objects.all()}
 
 class person_teacher(person_list_context):
 
     template_name = "teacher_list.html"
-
-    model = Teacher
 
     extra_context={'object_list': Teacher.objects.all()}
