@@ -23,4 +23,7 @@ urlpatterns = [
     path('persons/', views.person_list.as_view(), name='person-list'),
     path('students/', views.student_list.as_view(), name='studnet-list'),
     path('teachers/', views.teacher_list.as_view(), name='teacher-list'),
+    path('persons/context/', views.person_list_context.as_view(), name='person-list-context'),
+    path('students/context/', views.person_student.as_view(), name='studnet-list-context'),
+    path('teachers/context/', views.person_teacher.as_view(), name='teacher-list-context'),
 ]

@@ -1,0 +1,9 @@
+<h1>Teacher List</h1>
+<ul>
+    {% for object in object_list %}
+        <li>Name: {{ object.name }}, Age: {{object.age}}, Subject: {{object.subject}}</li>
+        <hr/>
+    {% empty %}
+        <li>No objects yet.</li>
+    {% endfor %}
+</ul>
